@@ -6,10 +6,14 @@ import Client from './client';
 import { fuseLocalPreview, fuseAndroidPreview, fuseiOSPreview } from './launch';
 import { CompletionProvider } from './completionprovider';
 import { HighlightProvider } from './highlightprovider';
+import Diagnostics from './diagnostics';
 
 let statusBar;
+let diagnostics;
 
 export function activate(context: vscode.ExtensionContext) {
+
+    diagnostics = new Diagnostics();
 
     // Commands
     const connectToDaemon = vscode.commands.registerCommand('fuse.connect', () => {
@@ -50,10 +54,12 @@ export function activate(context: vscode.ExtensionContext) {
 
     Client.Instance.buildStarted = (data) => {
         console.log("Build started: " + JSON.stringify(data));
+        diagnostics.clear();
     };
 
     Client.Instance.buildEnded = (data) => {
         console.log("Build ended: " + JSON.stringify(data));
+        diagnostics.ended(data);
     };
 
     Client.Instance.buildLogged = (data) => {
@@ -62,6 +68,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     Client.Instance.buildIssueDetected = (data) => {
         console.log("Build issue detected: " + JSON.stringify(data));
+        diagnostics.set(data);
     };
 
     Client.Instance.connect();
