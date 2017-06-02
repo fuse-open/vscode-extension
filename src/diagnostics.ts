@@ -32,11 +32,17 @@ export default class Diagnostics {
                 return;
         }
 
+        if (!data.Data.StartPosition) {
+            data.Data.StartPosition = {
+                Line: 1,
+                Character: 1
+            };
+        }
         if (!data.Data.EndPosition) {
             data.Data.EndPosition = {
                 Line: data.Data.StartPosition.Line,
                 Character: 1000
-            }
+            };
         }
 
         const diagnostic = new Diagnostic(new Range(data.Data.StartPosition.Line - 1,
