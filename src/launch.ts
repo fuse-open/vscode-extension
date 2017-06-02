@@ -1,33 +1,21 @@
 import { spawn } from 'child_process';
-import { workspace, commands, window } from 'vscode';
-
-var localOutputChannel = window.createOutputChannel("Fuse: Local preview");
-var androidOutputChannel = window.createOutputChannel("Fuse: Android preview");
-var iosOutputChannel = window.createOutputChannel("Fuse: iOS preview");
-
-function OutputToBuffer(data, outChannel) {
-    var str = "";
-    data.forEach(function (element) {
-        str = str + String.fromCharCode(element);
-    }, this);
-    outChannel.append(str);
-    str = "";
-}
+import { workspace } from 'vscode';
+import { getOutputChannel, writeToChannel } from './outputchannel';
 
 export function fuseLocalPreview(): void {
     const preview = spawn("fuse", ['preview'], { detached: true, cwd: workspace.rootPath });
-    preview.stdout.on("data", (data) => { OutputToBuffer(data, localOutputChannel); });
-    preview.stderr.on("data", (data) => { OutputToBuffer(data, localOutputChannel); });
+    preview.stdout.on("data", (data) => { writeToChannel(data, getOutputChannel("Fuse: Local preview")); });
+    preview.stderr.on("data", (data) => { writeToChannel(data, getOutputChannel("Fuse: Local preview")); });
 };
 
 export function fuseAndroidPreview(): void {
     const preview = spawn("fuse", ['preview', '-tandroid', '-r'], { detached: true, cwd: workspace.rootPath });
-    preview.stdout.on("data", (data) => { OutputToBuffer(data, androidOutputChannel); });
-    preview.stderr.on("data", (data) => { OutputToBuffer(data, androidOutputChannel); });
+    preview.stdout.on("data", (data) => { writeToChannel(data, getOutputChannel("Fuse: Android preview")); });
+    preview.stderr.on("data", (data) => { writeToChannel(data, getOutputChannel("Fuse: Android preview")); });
 }
 
 export function fuseiOSPreview(): void {
     const preview = spawn("fuse", ['preview', '-tios', '-r'], { detached: true, cwd: workspace.rootPath });
-    preview.stdout.on("data", (data) => { OutputToBuffer(data, iosOutputChannel); });
-    preview.stderr.on("data", (data) => { OutputToBuffer(data, iosOutputChannel); });
+    preview.stdout.on("data", (data) => { writeToChannel(data, getOutputChannel("Fuse: iOS preview")); });
+    preview.stderr.on("data", (data) => { writeToChannel(data, getOutputChannel("Fuse: iOS preview")); });
 }

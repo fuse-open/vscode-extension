@@ -48,7 +48,28 @@ export function activate(context: vscode.ExtensionContext) {
         });
     }
 
+    Client.Instance.buildStarted = (data) => {
+        console.log("Build started: " + JSON.stringify(data));
+    };
+
+    Client.Instance.buildEnded = (data) => {
+        console.log("Build ended: " + JSON.stringify(data));
+    };
+
+    Client.Instance.buildLogged = (data) => {
+        console.log("Build logged: " + JSON.stringify(data));
+    };
+
+    Client.Instance.buildIssueDetected = (data) => {
+        console.log("Build issue detected: " + JSON.stringify(data));
+    };
+
     Client.Instance.connect();
+
+    Client.Instance.subscribe("Fuse.BuildStarted");
+    Client.Instance.subscribe("Fuse.BuildLogged");
+    Client.Instance.subscribe("Fuse.BuildIssueDetected");
+    Client.Instance.subscribe("Fuse.BuildEnded");
 
     // Syntax hiliting
     vscode.languages.registerDocumentHighlightProvider('ux', new HighlightProvider());

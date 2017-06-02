@@ -1,5 +1,6 @@
 import { spawn, ChildProcess } from 'child_process';
 import { Deferred } from './deferred';
+import { getOutputChannel, writeToChannel } from './outputchannel';
 
 export default class Client {
 
@@ -10,6 +11,7 @@ export default class Client {
     }
 
     requestId: number = 1;
+    subscriptionId: number = 1;
     buffer: Buffer = new Buffer(0);
     fuseClient: ChildProcess;
     requests: {} = {};
@@ -17,6 +19,12 @@ export default class Client {
     public connected: () => void;
     public disconnected: () => void;
     public failed: (string) => void;
+
+    public buildStarted: (data) => void;
+    public buildEnded: (data) => void;
+    public buildIssueDetected: (data) => void;
+    public buildLogged: (data) => void;
+
 
     public connect(): void {
         this.getClient();
@@ -31,6 +39,23 @@ export default class Client {
 
         return deferred.promise;
     }
+
+
+    //{"Name":"Subscribe","Id":101,"Arguments":{"Filter":"Fuse.BuildLogged","Replay":false,"SubscriptionId":42}}
+    public subscribe(pattern: string, replay = false, subscriptionId?: number) {
+        if (subscriptionId === undefined) {
+            subscriptionId = this.subscriptionId++;
+        }
+        return this.sendRequest({
+            "Name": "Subscribe",
+            "Arguments": {
+                "Filter": pattern,
+                "Replay": replay,
+                "SubscriptionId": subscriptionId
+            }
+        });
+    }
+
 
     public sendEvent(data): void {
         this.send(this.getClient(), "Event", JSON.stringify(data));
@@ -49,11 +74,11 @@ export default class Client {
     }
 
     private onData(data) {
-        // Data is a stream and must be parsed as that
+        getOutputChannel('Extension debug').append(JSON.stringify(data));
         var latestBuf = Buffer.concat([Client.Instance.buffer, data]);
         Client.Instance.buffer = Client.Instance.parseMsgFromBuffer(latestBuf, (message) => {
             const json = JSON.parse(message);
-            Client.Instance.handleReply(json.Id, json);
+            Client.Instance.handleData(json.Id, json);
         });
     }
 
@@ -91,7 +116,32 @@ export default class Client {
         return this.fuseClient;
     }
 
-    private handleReply(id, payload): void {
+    private handleData(id, payload): void {
+        if (payload.Name) {
+            console.log('Name of event: ' + payload.Name);
+            switch (payload.Name) {
+                case "Fuse.BuildStarted":
+                    if (this.buildStarted) {
+                        this.buildStarted(payload);
+                    }
+                    break;
+                case "Fuse.BuildEnded":
+                    if (this.buildEnded) {
+                        this.buildEnded(payload);
+                    }
+                    break;
+                case "Fuse.BuildLogged":
+                    if (this.buildLogged) {
+                        this.buildLogged(payload);
+                    }
+                    break;
+                case "Fuse.BuildIssueDetected":
+                    if (this.buildIssueDetected) {
+                        this.buildIssueDetected(payload);
+                    }
+                    break;
+            }
+        }
         if (this.requests[id]) {
             this.requests[id].resolve(payload);
             delete this.requests[id];
