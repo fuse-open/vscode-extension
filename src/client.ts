@@ -9,25 +9,20 @@ export default class Client {
         return this.instance || (this.instance = new this());
     }
 
-    requestId: number;
-    buffer: Buffer;
+    requestId: number = 1;
+    buffer: Buffer = new Buffer(0);
     fuseClient: ChildProcess;
-    requests: {};
+    requests: {} = {};
 
     public connected: () => void;
     public disconnected: () => void;
     public failed: (string) => void;
 
-    private constructor() {
-        this.requestId = 1;
-        this.buffer = new Buffer(0);
-    }
-
     public connect(): void {
         this.getClient();
     }
 
-    public sendRequest(data): void {
+    public sendRequest(data) {
         data.Id = this.requestId++;
 
         const deferred = new Deferred();
@@ -55,10 +50,10 @@ export default class Client {
 
     private onData(data) {
         // Data is a stream and must be parsed as that
-        var latestBuf = Buffer.concat([this.buffer, data]);
-        this.buffer = this.parseMsgFromBuffer(latestBuf, function (message) {
+        var latestBuf = Buffer.concat([Client.Instance.buffer, data]);
+        Client.Instance.buffer = Client.Instance.parseMsgFromBuffer(latestBuf, (message) => {
             const json = JSON.parse(message);
-            this.handleReply(json.Id, json);
+            Client.Instance.handleReply(json.Id, json);
         });
     }
 

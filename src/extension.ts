@@ -1,24 +1,40 @@
 'use strict';
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
+
 import * as vscode from 'vscode';
 import StatusBar from './statusbar';
 import Client from './client';
-import { fuseLocalPreview } from './launch';
+import { fuseLocalPreview, fuseAndroidPreview, fuseiOSPreview } from './launch';
+import { CompletionProvider } from './completionprovider';
+import { HighlightProvider } from './highlightprovider';
 
 let statusBar;
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
+
 export function activate(context: vscode.ExtensionContext) {
 
-    let connectToDaemon = vscode.commands.registerCommand('fuse.connect', Client.Instance.connect);
-    let commandLocalPreview = vscode.commands.registerCommand('fuse.preview.local', fuseLocalPreview);
+    // Commands
+    const connectToDaemon = vscode.commands.registerCommand('fuse.connect', () => {
+        Client.Instance.connect();
+    });
+    const commandLocalPreview = vscode.commands.registerCommand('fuse.preview.local', () => {
+        fuseLocalPreview();
+    });
+    const commandAndroidPreview = vscode.commands.registerCommand('fuse.preview.android', () => {
+        fuseAndroidPreview();
+    });
+    const commandiOSPreview = vscode.commands.registerCommand('fuse.preview.ios', () => {
+        fuseiOSPreview();
+    });
 
-    context.subscriptions.push(connectToDaemon);
-    context.subscriptions.push(commandLocalPreview);
+    context.subscriptions.push(
+        connectToDaemon,
+        commandLocalPreview,
+        commandAndroidPreview,
+        commandiOSPreview);
 
+    // Status bar
     statusBar = new StatusBar();
 
+    // Daemon connection/disconnect
     Client.Instance.connected = () => {
         statusBar.connected();
     }
@@ -33,8 +49,16 @@ export function activate(context: vscode.ExtensionContext) {
     }
 
     Client.Instance.connect();
+
+    // Syntax hiliting
+    vscode.languages.registerDocumentHighlightProvider('ux', new HighlightProvider());
+
+    // Auto completion
+    vscode.languages.registerCompletionItemProvider('ux', new CompletionProvider('UX'));
+    vscode.languages.registerCompletionItemProvider('uno', new CompletionProvider('Uno'));
 }
 
-// this method is called when your extension is deactivated
+
 export function deactivate() {
+
 }

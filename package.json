@@ -15,10 +15,72 @@
     ],
     "main": "./out/src/extension",
     "contributes": {
-        "commands": [{
-            "command": "extension.sayHello",
-            "title": "Hello World"
-        }]
+        "commands": [
+            {
+                "command": "fuse.preview.android",
+                "title": "Fuse: Preview Android"
+            },
+            {
+                "command": "fuse.preview.ios",
+                "title": "Fuse: Preview iOS"
+            },
+            {
+                "command": "fuse.preview.local",
+                "title": "Fuse: Preview local"
+            },
+            {
+                "command": "fuse.connect",
+                "title": "Fuse: Connect to daemon"
+            }
+        ],
+        "languages": [
+            {
+                "id": "unoproj",
+                "aliases": [],
+                "extensions": [
+                    ".unoproj"
+                ]
+            },
+            {
+                "id": "uno",
+                "aliases": [
+                    "Uno",
+                    "uno"
+                ],
+                "extensions": [
+                    ".uno",
+                    ".unotrace"
+                ],
+                "configuration": "./languages/uno.json"
+            },
+            {
+                "id": "ux",
+                "aliases": [
+                    "UX"
+                ],
+                "extensions": [
+                    ".ux"
+                ],
+                "configuration": "./languages/ux.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "uno",
+                "scopeName": "source.uno",
+                "path": "./syntax/uno.tmLanguage"
+            },
+            {
+                "language": "ux",
+                "scopeName": "text.xml",
+                "path": "./syntax/ux.tmLanguage"
+            },
+            {
+                "language": "unoproj",
+                "scopeName": "text.unoproj",
+                "path": "./syntax/unoproj.tmLanguage"
+            }
+        ]
     },
     "scripts": {
         "vscode:prepublish": "tsc -p ./",
