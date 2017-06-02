@@ -25,3 +25,6 @@ This extension contributes the following settings:
 
 ## Release Notes
 
+## Develop
+
+Run `npm install` after cloning. Start code in the directory using `code .`. Press F5 to launch extension development sandbox.
