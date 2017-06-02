@@ -8,6 +8,7 @@ Fuse plugin for Visual Studio Code.
 - Code completion
 - Launch preview from commands in VS Code
 - Update UX from Fuse Studio
+- Diagnostics on compiler errors, list appears in the PROBLEMS-tab
 
 ## Extension Settings
 
