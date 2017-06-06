@@ -50,4 +50,16 @@ export default class StatusBar {
         this.fuseStatusBarItem.tooltip = "Connect to Fuse daemon";
     }
 
+    public buildStarted() {
+        window.setStatusBarMessage("Build started...", 3000);
+    }
+
+    public buildSucceeded() {
+        window.setStatusBarMessage("Build succeeded", 3000);
+    }
+
+    public buildFailed() {
+        window.setStatusBarMessage("Build failed", 3000);
+    }
+
 }

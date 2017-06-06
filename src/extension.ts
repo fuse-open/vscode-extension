@@ -41,6 +41,10 @@ export function activate(context: vscode.ExtensionContext) {
     // Daemon connection/disconnect
     Client.Instance.connected = () => {
         statusBar.connected();
+        Client.Instance.subscribe("Fuse.BuildStarted");
+        Client.Instance.subscribe("Fuse.BuildLogged");
+        Client.Instance.subscribe("Fuse.BuildIssueDetected");
+        Client.Instance.subscribe("Fuse.BuildEnded");
     }
 
     Client.Instance.disconnected = () => {
@@ -52,14 +56,18 @@ export function activate(context: vscode.ExtensionContext) {
         });
     }
 
-    Client.Instance.buildStarted = (data) => {
-        console.log("Build started: " + JSON.stringify(data));
+    Client.Instance.buildStarted = (data) => {     
+        statusBar.buildStarted();   
         diagnostics.clear();
     };
 
-    Client.Instance.buildEnded = (data) => {
-        console.log("Build ended: " + JSON.stringify(data));
+    Client.Instance.buildEnded = (data) => {        
         diagnostics.ended(data);
+        if (data.Data.Status === "Error") {
+            statusBar.buildFailed();
+        } else {
+            statusBar.buildSucceeded();
+        }
     };
 
     Client.Instance.buildLogged = (data) => {
@@ -72,11 +80,6 @@ export function activate(context: vscode.ExtensionContext) {
     };
 
     Client.Instance.connect();
-
-    Client.Instance.subscribe("Fuse.BuildStarted");
-    Client.Instance.subscribe("Fuse.BuildLogged");
-    Client.Instance.subscribe("Fuse.BuildIssueDetected");
-    Client.Instance.subscribe("Fuse.BuildEnded");
 
     // Syntax hiliting
     vscode.languages.registerDocumentHighlightProvider('ux', new HighlightProvider());

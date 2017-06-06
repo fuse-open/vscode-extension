@@ -73,8 +73,7 @@ export default class Client {
         }
     }
 
-    private onData(data) {
-        getOutputChannel('Extension debug').append(JSON.stringify(data));
+    private onData(data) {        
         var latestBuf = Buffer.concat([Client.Instance.buffer, data]);
         Client.Instance.buffer = Client.Instance.parseMsgFromBuffer(latestBuf, (message) => {
             const json = JSON.parse(message);
@@ -117,8 +116,7 @@ export default class Client {
     }
 
     private handleData(id, payload): void {
-        if (payload.Name) {
-            console.log('Name of event: ' + payload.Name);
+        if (payload.Name) {            
             switch (payload.Name) {
                 case "Fuse.BuildStarted":
                     if (this.buildStarted) {
