@@ -7,6 +7,7 @@ Fuse plugin for Visual Studio Code.
 - Syntax hiliting
 - Code completion
 - Launch preview from commands in VS Code
+- Send selection from VS Code to Fuse Studio
 - Update UX from Fuse Studio
 - Diagnostics on compiler errors, list appears in the PROBLEMS-tab
 

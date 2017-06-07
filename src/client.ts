@@ -25,7 +25,6 @@ export default class Client {
     public buildIssueDetected: (data) => void;
     public buildLogged: (data) => void;
 
-
     public connect(): void {
         this.getClient();
     }
@@ -40,8 +39,6 @@ export default class Client {
         return deferred.promise;
     }
 
-
-    //{"Name":"Subscribe","Id":101,"Arguments":{"Filter":"Fuse.BuildLogged","Replay":false,"SubscriptionId":42}}
     public subscribe(pattern: string, replay = false, subscriptionId?: number) {
         if (subscriptionId === undefined) {
             subscriptionId = this.subscriptionId++;

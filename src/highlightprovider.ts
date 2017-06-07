@@ -19,7 +19,7 @@ export class HighlightProvider implements DocumentHighlightProvider {
                 {
                     "Path": document.fileName, // Path to the file where selection was changed
                     "Text": document.getText(), // Full source of document
-                    "CaretPosition": { "Line": 1 + position.line, "Character": 1 + position.character }
+                    "CaretPosition": { "Line": position.line, "Character": position.character }
                 }
             })
         }
