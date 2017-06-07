@@ -11,7 +11,10 @@
         "Other"
     ],
     "activationEvents": [
-        "*"
+        "onLanguage:uno",
+        "onLanguage:unoproj",
+        "onLanguage:ux",
+        "onCommand:fuse.connect"
     ],
     "main": "./out/src/extension",
     "contributes": {
