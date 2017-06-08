@@ -1,4 +1,4 @@
-# fuse-vscode-typescript README
+# Fuse.VSCodePlugin
 
 Fuse plugin for Visual Studio Code.
 
@@ -12,15 +12,6 @@ Fuse plugin for Visual Studio Code.
 - Diagnostics on compiler errors, list appears in the PROBLEMS-tab
 
 ## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
 
 ## Known Issues
 
