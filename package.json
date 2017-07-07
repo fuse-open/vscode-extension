@@ -3,7 +3,7 @@
     "displayName": "fuse-vscode",
     "description": "Fuse plugin",
     "version": "0.0.1",
-    "publisher": "fusetools",
+    "publisher": "COCPORN",
     "engines": {
         "vscode": "^1.12.0"
     },
