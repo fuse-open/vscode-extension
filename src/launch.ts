@@ -9,13 +9,13 @@ export function fuseLocalPreview(): void {
 };
 
 export function fuseAndroidPreview(): void {
-    const preview = spawn("fuse", ['preview', '-tandroid', '-r'], { detached: true, cwd: workspace.rootPath });
+    const preview = spawn("fuse", ['preview', '.', '-tandroid', '-r'], { detached: true, cwd: workspace.rootPath });
     preview.stdout.on("data", (data) => { writeToChannel(data, getOutputChannel("Fuse: Android preview")); });
     preview.stderr.on("data", (data) => { writeToChannel(data, getOutputChannel("Fuse: Android preview")); });
 }
 
 export function fuseiOSPreview(): void {
-    const preview = spawn("fuse", ['preview', '-tios', '-r'], { detached: true, cwd: workspace.rootPath });
+    const preview = spawn("fuse", ['preview', '.', '-tios', '-r'], { detached: true, cwd: workspace.rootPath });
     preview.stdout.on("data", (data) => { writeToChannel(data, getOutputChannel("Fuse: iOS preview")); });
     preview.stderr.on("data", (data) => { writeToChannel(data, getOutputChannel("Fuse: iOS preview")); });
 }
