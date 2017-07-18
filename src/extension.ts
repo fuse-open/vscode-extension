@@ -3,7 +3,7 @@
 import * as vscode from 'vscode';
 import StatusBar from './statusbar';
 import Client from './client';
-import { fuseLocalPreview, fuseAndroidPreview, fuseiOSPreview } from './launch';
+import { fuseLocalPreview, fuseAndroidPreview, fuseiOSPreview, fuseLocalDebug } from './launch';
 import { CompletionProvider } from './completionprovider';
 import { HighlightProvider } from './highlightprovider';
 import Diagnostics from './diagnostics';
@@ -28,12 +28,17 @@ export function activate(context: vscode.ExtensionContext) {
     const commandiOSPreview = vscode.commands.registerCommand('fuse.preview.ios', () => {
         fuseiOSPreview();
     });
+    const commandLocalDebug = vscode.commands.registerCommand('fuse.preview.local.debug', () =>
+    {
+        fuseLocalDebug();
+    });
 
     context.subscriptions.push(
         connectToDaemon,
         commandLocalPreview,
         commandAndroidPreview,
-        commandiOSPreview);
+        commandiOSPreview,
+        commandLocalDebug);
 
     // Status bar
     statusBar = new StatusBar();
@@ -71,7 +76,7 @@ export function activate(context: vscode.ExtensionContext) {
     };
 
     Client.Instance.buildLogged = (data) => {
-        console.log("Build logged: " + JSON.stringify(data));
+        //console.log("Build logged: " + JSON.stringify(data));
     };
 
     Client.Instance.buildIssueDetected = (data) => {

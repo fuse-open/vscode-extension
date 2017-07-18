@@ -19,3 +19,9 @@ export function fuseiOSPreview(): void {
     preview.stdout.on("data", (data) => { writeToChannel(data, getOutputChannel("Fuse: iOS preview")); });
     preview.stderr.on("data", (data) => { writeToChannel(data, getOutputChannel("Fuse: iOS preview")); });
 }
+
+export function fuseLocalDebug(): void {
+    const preview = spawn("fuse", ['preview', '.', '-DDEBUG_V8'], { detached: true, cwd: workspace.rootPath });
+    preview.stdout.on("data", (data) => { writeToChannel(data, getOutputChannel("Fuse: Local debug")); });
+    preview.stderr.on("data", (data) => { writeToChannel(data, getOutputChannel("Fuse: Local debug")); });
+}
