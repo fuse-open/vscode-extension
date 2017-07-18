@@ -11,6 +11,7 @@ import {
 import Client from './client';
 
 export class CompletionProvider implements CompletionItemProvider {
+
     language: string;
 
     constructor(language: string) {
@@ -20,7 +21,7 @@ export class CompletionProvider implements CompletionItemProvider {
     public provideCompletionItems(
         document: TextDocument,
         position: Position,
-        token: CancellationToken) {
+        token: CancellationToken) : Promise<CompletionItem[]> {
         return new Promise((resolve, reject) => {
             const filename = document.fileName;
 
