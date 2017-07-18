@@ -6,12 +6,12 @@
     "icon": "images/icon.png",
     "license": "See LICENSE",
     "version": "0.0.1",
-    "publisher": "COCPORN",
+    "publisher": "iGN97",
     "repository": {
         "type": "git",
-        "url": "https://github.com/COCPORN/fuse-vscode.git"
+        "url": "https://github.com/ign97/fuse-vscode.git"
     },
-    "homepage": "https://github.com/COCPORN/fuse-vscode",
+    "homepage": "https://github.com/ign97/fuse-vscode",
     "engines": {
         "vscode": "^1.12.0"
     },
