@@ -17,9 +17,15 @@ Fuse plugin for Visual Studio Code. This plugin uses information and code from:
 
 ## Extension Settings
 
+This extension currently has no configurable settings.
+
 ## Known Issues
 
+See issues on repository.
+
 ## Release Notes
+
+Initial release.
 
 ## Develop
 

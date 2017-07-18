@@ -1,9 +1,17 @@
 {
     "name": "fuse-vscode",
     "displayName": "fuse-vscode",
-    "description": "Fuse plugin",
+    "description": "Plugin for Fuse, http://www.fusetools.com",
+    "author": "Lars Thomas Denstad",
+    "icon": "images/icon.png",
+    "license": "See LICENSE",
     "version": "0.0.1",
     "publisher": "COCPORN",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/COCPORN/fuse-vscode.git"
+    },
+    "homepage": "https://github.com/COCPORN/fuse-vscode",
     "engines": {
         "vscode": "^1.12.0"
     },
