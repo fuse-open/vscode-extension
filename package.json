@@ -1,6 +1,6 @@
 {
     "name": "fuse-vscode",
-    "displayName": "fuse-vscode",
+    "displayName": "Fuse Extension",
     "description": "Plugin for Fuse, http://www.fusetools.com",
     "author": "Lars Thomas Denstad",
     "icon": "images/icon.png",
