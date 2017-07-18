@@ -56,12 +56,12 @@ export function activate(context: vscode.ExtensionContext) {
         });
     }
 
-    Client.Instance.buildStarted = (data) => {     
-        statusBar.buildStarted();   
+    Client.Instance.buildStarted = (data) => {
+        statusBar.buildStarted();
         diagnostics.clear();
     };
 
-    Client.Instance.buildEnded = (data) => {        
+    Client.Instance.buildEnded = (data) => {
         diagnostics.ended(data);
         if (data.Data.Status === "Error") {
             statusBar.buildFailed();
@@ -75,7 +75,6 @@ export function activate(context: vscode.ExtensionContext) {
     };
 
     Client.Instance.buildIssueDetected = (data) => {
-        console.log("Build issue detected: " + JSON.stringify(data));
         diagnostics.set(data);
     };
 
