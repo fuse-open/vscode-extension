@@ -48,6 +48,17 @@
                 "title": "Fuse: Connect to daemon"
             }
         ],
+        "keybindings": [
+            {
+                "command": "fuse.preview.local.debug",
+                "key": "f5"
+            },
+            {
+                "command": "fuse.preview.local",
+                "key": "ctrl+f5",
+                "mac": "cmd+f5"
+            }
+        ],
         "languages": [
             {
                 "id": "unoproj",
