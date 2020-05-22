@@ -30,3 +30,5 @@ Initial release.
 ## Develop
 
 Run `npm install` after cloning. Start code in the directory using `code .`. Press F5 to launch extension development sandbox.
+
+Run `npm run build` to produce a packaged extension file (`.vsix`).

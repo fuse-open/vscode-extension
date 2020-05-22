@@ -99,6 +99,7 @@
     },
     "scripts": {
         "vscode:prepublish": "tsc -p ./",
+        "build": "vsce package",
         "compile": "tsc -watch -p ./",
         "postinstall": "node ./node_modules/vscode/bin/install",
         "test": "node ./node_modules/vscode/bin/test"
@@ -108,6 +109,7 @@
         "@types/node": "^6.14.10",
         "mocha": "^7.1.2",
         "typescript": "^2.9.2",
+        "vsce": "^1.75.0",
         "vscode": "^1.1.37"
     }
 }
