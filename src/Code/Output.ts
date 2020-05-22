@@ -1,6 +1,6 @@
 import { window, OutputChannel } from 'vscode';
 
-const outputChannels = {};
+const outputChannels: { [x: string]: OutputChannel } = {};
 
 export function getOutputChannel(channel: string): OutputChannel {
     if (channel in outputChannels) {
@@ -12,11 +12,11 @@ export function getOutputChannel(channel: string): OutputChannel {
     }
 }
 
-export function writeToChannel(data, outChannel: OutputChannel): void {
+export function writeToChannel(data: any, outChannel: OutputChannel): void {
     var str = "";
-    data.forEach(function (element) {
+    data.forEach(function (element: any) {
         str = str + String.fromCharCode(element);
-    }, this);
+    });
     outChannel.append(str);
     str = "";
 }

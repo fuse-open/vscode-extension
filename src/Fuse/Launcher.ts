@@ -1,6 +1,6 @@
 import { spawn } from 'child_process';
 import { workspace } from 'vscode';
-import { getOutputChannel, writeToChannel } from './outputchannel';
+import { getOutputChannel, writeToChannel } from '../Code/Output';
 
 export function fuseLocalPreview(): void {
     const preview = spawn("fuse", ['preview'], { detached: true, cwd: workspace.rootPath });

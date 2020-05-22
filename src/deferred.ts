@@ -1,5 +1,5 @@
-export class Deferred {
-    promise: any;
+export class Deferred<T> {
+    promise: Promise<T>;
     resolve: any;
     reject: any;
 

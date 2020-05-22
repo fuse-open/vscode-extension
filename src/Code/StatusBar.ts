@@ -2,11 +2,11 @@ import { window, StatusBarAlignment, StatusBarItem } from 'vscode';
 
 let showConnectionMessage = true;
 
-export default class StatusBar {
+export class StatusBar {
     fuseStatusBarItem: StatusBarItem;
     localPreview: StatusBarItem;
     androidPreview: StatusBarItem;
-    iosPreview: StatusBarItem;
+    iosPreview?: StatusBarItem;
 
     constructor() {
         this.fuseStatusBarItem = window.createStatusBarItem(StatusBarAlignment.Left);
@@ -19,24 +19,24 @@ export default class StatusBar {
         this.localPreview.tooltip = "Start Fuse local preview";
         this.localPreview.show();
 
-        this.localPreview = window.createStatusBarItem(StatusBarAlignment.Left, -5);
-        this.localPreview.text = "Android";
-        this.localPreview.command = "fuse.preview.android";
-        this.localPreview.tooltip = "Start Fuse Android preview";
-        this.localPreview.show();
+        this.androidPreview = window.createStatusBarItem(StatusBarAlignment.Left, -5);
+        this.androidPreview.text = "Android";
+        this.androidPreview.command = "fuse.preview.android";
+        this.androidPreview.tooltip = "Start Fuse Android preview";
+        this.androidPreview.show();
 
         if (process.platform === "darwin") {
-            this.localPreview = window.createStatusBarItem(StatusBarAlignment.Left, -7);
-            this.localPreview.text = "iOS";
-            this.localPreview.command = "fuse.preview.ios";
-            this.localPreview.tooltip = "Start Fuse iOS preview";
-            this.localPreview.show();
+            this.iosPreview = window.createStatusBarItem(StatusBarAlignment.Left, -7);
+            this.iosPreview.text = "iOS";
+            this.iosPreview.command = "fuse.preview.ios";
+            this.iosPreview.tooltip = "Start Fuse iOS preview";
+            this.iosPreview.show();
         }
     }
 
     public connected() {
         this.fuseStatusBarItem.text = "Fuse $(rss)";
-        this.fuseStatusBarItem.command = null;
+        this.fuseStatusBarItem.command = void 0;
         this.fuseStatusBarItem.tooltip = "Connected to Fuse daemon";
         if (showConnectionMessage) {
             window.setStatusBarMessage("Connected to Fuse daemon", 3000);

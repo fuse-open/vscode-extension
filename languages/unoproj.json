@@ -1,0 +1,37 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "definitions": {
+        "stringarray": {
+            "type": "array",
+            "items": { "type": "string" }
+        }
+    },
+    "properties": {
+        "Packages": { "$ref": "#/definitions/stringarray" },
+        "Projects": { "$ref": "#/definitions/stringarray" },
+        "Includes": { "$ref": "#/definitions/stringarray" },
+        "Excludes": { "$ref": "#/definitions/stringarray" },
+        "Title": { "type": "string" },
+        "Description": { "type": "string" },
+        "Copyright": { "type": "string" },
+        "Publisher": { "type": "string" },
+        "Version": { "type": "string" },
+        "VersionCode": { "type": "number" },
+        "RootNamespace": { "type": "string" },
+        "BuildDirectory": { "type": "string" },
+        "OutputDirectory": { "type": "string" },
+        "CacheDirectory": { "type": "string" },
+        "UnoCoreReference": { "type": "boolean" },
+        "Mobile": {
+            "type": "object",
+            "properties": {
+                "UriScheme": { "type": "string" },
+                "KeepAlive": { "type": "boolean", "description": "If set to true, the screen won't dim and eventually turn off while your app is open. Defaults to false." },
+                "ShowStatusbar": { "type": "boolean" },
+                "RunsInBackground": { "type": "boolean" },
+                "Orientations": { "type": "string" }
+
+            }
+        }
+    }
+}
