@@ -4,7 +4,7 @@
     "description": "Plugin for Fuse, https://fuseopen.com",
     "author": "Fuse Open",
     "icon": "images/icon.png",
-    "license": "See LICENSE",
+    "license": "MIT",
     "version": "0.0.1",
     "publisher": "fuseopen",
     "repository": {
