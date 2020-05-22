@@ -1,7 +1,7 @@
 {
     "name": "fuse-vscode",
     "displayName": "Fuse Extension",
-    "description": "Plugin for Fuse, https://fuseopen.com",
+    "description": "Fuse extension for Visual Studio Code. Read more at https://fuseopen.com/",
     "author": "Fuse Open",
     "icon": "images/icon.png",
     "license": "MIT",

@@ -1,6 +1,6 @@
-# Fuse.VSCodePlugin
+# fuse-vscode
 
-Fuse plugin for Visual Studio Code. This plugin uses information and code from:
+Fuse extension for Visual Studio Code. This plugin uses information and code from:
 
 - https://fuseopen.com/docs/technical-corner/fuse-protocol
 - https://github.com/sergiirocks/vscode-fuse-syntax
@@ -31,4 +31,4 @@ Initial release.
 
 Run `npm install` after cloning. Start code in the directory using `code .`. Press F5 to launch extension development sandbox.
 
-Run `npm run build` to produce a packaged extension file (`.vsix`).
+Run `npm run build` to produce a packaged extension file (`fuse-vscode-VERSION.vsix`).
