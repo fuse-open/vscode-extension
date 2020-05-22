@@ -1,17 +1,17 @@
 {
     "name": "fuse-vscode",
     "displayName": "Fuse Extension",
-    "description": "Plugin for Fuse, http://www.fusetools.com",
-    "author": "Lars Thomas Denstad",
+    "description": "Plugin for Fuse, https://fuseopen.com",
+    "author": "Fuse Open",
     "icon": "images/icon.png",
     "license": "See LICENSE",
     "version": "0.0.1",
-    "publisher": "iGN97",
+    "publisher": "fuseopen",
     "repository": {
         "type": "git",
-        "url": "https://github.com/ign97/fuse-vscode.git"
+        "url": "https://github.com/fuse-open/Fuse.VSCodePlugin.git"
     },
-    "homepage": "https://github.com/ign97/fuse-vscode",
+    "homepage": "https://fuseopen.com/",
     "engines": {
         "vscode": "^1.12.0"
     },

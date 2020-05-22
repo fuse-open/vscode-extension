@@ -2,7 +2,7 @@
 
 Fuse plugin for Visual Studio Code. This plugin uses information and code from:
 
-- https://www.fusetools.com/docs/technical-corner/fuse-protocol
+- https://fuseopen.com/docs/technical-corner/fuse-protocol
 - https://github.com/sergiirocks/vscode-fuse-syntax
 
 ## Features
