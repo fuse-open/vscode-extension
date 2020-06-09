@@ -1,22 +1,22 @@
 {
     "name": "fuse-vscode",
     "displayName": "Fuse Extension",
-    "description": "Plugin for Fuse, http://www.fusetools.com",
-    "author": "Lars Thomas Denstad",
+    "description": "Fuse extension for Visual Studio Code. Read more at https://fuseopen.com/",
+    "author": "Fuse Open",
     "icon": "images/icon.png",
-    "license": "See LICENSE",
+    "license": "MIT",
     "version": "0.0.1",
-    "publisher": "iGN97",
+    "publisher": "fuseopen",
     "repository": {
         "type": "git",
-        "url": "https://github.com/ign97/fuse-vscode.git"
+        "url": "https://github.com/fuse-open/Fuse.VSCodePlugin.git"
     },
-    "homepage": "https://github.com/ign97/fuse-vscode",
+    "homepage": "https://fuseopen.com/",
     "engines": {
         "vscode": "^1.12.0"
     },
     "categories": [
-        "Languages"
+        "Programming Languages"
     ],
     "activationEvents": [
         "onLanguage:uno",
@@ -99,15 +99,17 @@
     },
     "scripts": {
         "vscode:prepublish": "tsc -p ./",
+        "build": "vsce package",
         "compile": "tsc -watch -p ./",
         "postinstall": "node ./node_modules/vscode/bin/install",
         "test": "node ./node_modules/vscode/bin/test"
     },
     "devDependencies": {
-        "typescript": "^2.0.3",
-        "vscode": "^1.0.0",
-        "mocha": "^2.3.3",
-        "@types/node": "^6.0.40",
-        "@types/mocha": "^2.2.32"
+        "@types/mocha": "^2.2.48",
+        "@types/node": "^6.14.10",
+        "mocha": "^7.1.2",
+        "typescript": "^2.9.2",
+        "vsce": "^1.75.0",
+        "vscode": "^1.1.37"
     }
 }
