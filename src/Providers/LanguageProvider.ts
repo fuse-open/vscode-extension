@@ -25,7 +25,7 @@ export class LanguageProvider implements CompletionItemProvider, DefinitionProvi
         document: TextDocument,
         position: Position,
         token: CancellationToken
-    ) : Promise<CompletionItem[]> {
+    ): Promise<CompletionItem[]> {
         if (position.character <= 0) {
             return []
         }
@@ -36,7 +36,7 @@ export class LanguageProvider implements CompletionItemProvider, DefinitionProvi
             const payload = await FuseDaemon.Instance.sendRequest<FuseGetSuggestionsResponse>(requestPayload)
 
             return this._processSuggestions(payload);
-        } catch(err) {
+        } catch (err) {
             console.log(err);
         }
 
@@ -54,7 +54,7 @@ export class LanguageProvider implements CompletionItemProvider, DefinitionProvi
         try {
             const payload = await FuseDaemon.Instance.sendRequest<FuseGotoDefinitionResponse>(requestPayload)
             return this._processGotoDefinition(payload);
-        } catch(err) {
+        } catch (err) {
             console.log(err);
         }
 
@@ -110,64 +110,61 @@ export class LanguageProvider implements CompletionItemProvider, DefinitionProvi
             return new Location(uri, pos);
         }
 
-       return null;
+        return null;
     }
 }
 
-
-
-
 function getRemapFuseKind(fusekind: string) {
-    switch(fusekind) {
+    switch (fusekind) {
         case FuseSuggestItemKind.Event:
-                return CompletionItemKind.Event;
+            return CompletionItemKind.Event;
 
         case FuseSuggestItemKind.Directory:
-                return CompletionItemKind.Folder;
+            return CompletionItemKind.Folder;
 
         case FuseSuggestItemKind.File:
-                return CompletionItemKind.File;
+            return CompletionItemKind.File;
 
         case FuseSuggestItemKind.TypeAlias:
         case FuseSuggestItemKind.GenericParameterType:
-                return CompletionItemKind.TypeParameter;
+            return CompletionItemKind.TypeParameter;
 
         case FuseSuggestItemKind.Constructor:
-                return CompletionItemKind.Constructor;
+            return CompletionItemKind.Constructor;
 
         case FuseSuggestItemKind.Interface:
-                return CompletionItemKind.Interface;
+            return CompletionItemKind.Interface;
 
         case FuseSuggestItemKind.Constant:
-                return CompletionItemKind.Constant;
+            return CompletionItemKind.Constant;
 
         case FuseSuggestItemKind.Variable:
-                return CompletionItemKind.Variable;
+            return CompletionItemKind.Variable;
 
         case FuseSuggestItemKind.Struct:
-                return CompletionItemKind.Struct;
+            return CompletionItemKind.Struct;
 
         case FuseSuggestItemKind.EnumValue:
-                return CompletionItemKind.EnumMember;
+            return CompletionItemKind.EnumMember;
 
         case FuseSuggestItemKind.Enum:
-                return CompletionItemKind.Enum;
+            return CompletionItemKind.Enum;
 
         case FuseSuggestItemKind.Field:
-                return CompletionItemKind.Field;
+            return CompletionItemKind.Field;
 
         case FuseSuggestItemKind.Property:
-                return CompletionItemKind.Property;
+            return CompletionItemKind.Property;
 
         case FuseSuggestItemKind.Namespace:
         case FuseSuggestItemKind.Importer:
-                return CompletionItemKind.Module;
+            return CompletionItemKind.Module;
 
         case FuseSuggestItemKind.Method:
-                return CompletionItemKind.Method;
+            return CompletionItemKind.Method;
 
         case FuseSuggestItemKind.Interface:
-                return CompletionItemKind.Interface;
+            return CompletionItemKind.Interface;
 
         case FuseSuggestItemKind.Class:
             return CompletionItemKind.Class;
@@ -210,38 +207,38 @@ enum FuseSuggestItemKind {
 
 
 type FuseGetSuggestionsResponse = {
-	Id: number, // Id of request
-	Status: "Success",
-	Result:
-	{
+    Id: number, // Id of request
+    Status: "Success",
+    Result:
+    {
         // If true you should consider trying again later
-		IsUpdatingCache: boolean,
-		CodeSuggestions: FuseSuggestion[]
-	}
+        IsUpdatingCache: boolean,
+        CodeSuggestions: FuseSuggestion[]
+    }
 }
 
 
 type FuseGotoDefinitionResponse = {
-	Id: number, // Id of request
-	Status: "Success",
-	Result:
-	{
+    Id: number, // Id of request
+    Status: "Success",
+    Result:
+    {
         // If true you should consider trying again later
-		Path: string,
-		CaretPosition: CaretPosition
-	}
+        Path: string,
+        CaretPosition: CaretPosition
+    }
 }
 
 
 type FuseSuggestion = {
-        Suggestion: string,
-        PreText: string,
-        PostText: string,
-        Type: any // "<datatype>",
-        ReturnType: any //"<datatype>",
-        AccessModifiers: any //[ "<accessmodifier>", ... ],
-        FieldModifiers: any //[ "<fieldmodifier>", ... ],
-        MethodArguments: FuseSuggestionMethodArguments[],
+    Suggestion: string,
+    PreText: string,
+    PostText: string,
+    Type: any // "<datatype>",
+    ReturnType: any //"<datatype>",
+    AccessModifiers: any //[ "<accessmodifier>", ... ],
+    FieldModifiers: any //[ "<fieldmodifier>", ... ],
+    MethodArguments: FuseSuggestionMethodArguments[],
 }
 
 type FuseSuggestionMethodArguments = {

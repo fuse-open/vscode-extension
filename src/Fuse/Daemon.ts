@@ -193,50 +193,50 @@ export interface CaretPosition {
 type FuseSyntaxType = "UX" | "Uno" | string;
 
 type FuseRequests = FuseSubscribeRequest | FuseGetCodeSuggestionsRequest | FuseGetGotoDefinitionRequest;
-type FuseEvents =  FuseSelectionChangedEvent
+type FuseEvents = FuseSelectionChangedEvent
 
 
 type FuseSubscribeRequest = {
     Id?: number, // Unique request id
-	Name: "Subscribe",
-	Arguments:
-	{
-		Filter: string, // .Net style regex filtering incoming events based on type
-		Replay: boolean, // Use replay if you want to receive messages that were sent before you connected
-		SubscriptionId: number, // A locally unique number representing this subscription, so we can recognize the incoming events (and unsubscribe)
-	}
+    Name: "Subscribe",
+    Arguments:
+    {
+        Filter: string, // .Net style regex filtering incoming events based on type
+        Replay: boolean, // Use replay if you want to receive messages that were sent before you connected
+        SubscriptionId: number, // A locally unique number representing this subscription, so we can recognize the incoming events (and unsubscribe)
+    }
 }
 
 
 export type FuseGetCodeSuggestionsRequest = {
     Id?: number, // Unique request id
-	Name: "Fuse.GetCodeSuggestions",
-	Arguments:
-	{
-		SyntaxType: FuseSyntaxType, // Typically "UX" or "Uno"
-		Path: string, // Path to document where suggestion is requested
-		Text: string, // Full source of document where suggestion is requested
-		CaretPosition: CaretPosition // 1-indexed text position within Text where suggestion is requested
-	}
+    Name: "Fuse.GetCodeSuggestions",
+    Arguments:
+    {
+        SyntaxType: FuseSyntaxType, // Typically "UX" or "Uno"
+        Path: string, // Path to document where suggestion is requested
+        Text: string, // Full source of document where suggestion is requested
+        CaretPosition: CaretPosition // 1-indexed text position within Text where suggestion is requested
+    }
 }
 
 export type FuseGetGotoDefinitionRequest = {
     Id?: number, // Unique request id
-	Name: "Fuse.GotoDefinition",
-	Arguments:
-	{
-		SyntaxType: FuseSyntaxType, // Typically "UX" or "Uno"
-		Path: string, // Path to document where suggestion is requested
-		Text: string, // Full source of document where suggestion is requested
-		CaretPosition: CaretPosition // 1-indexed text position within Text where suggestion is requested
-	}
+    Name: "Fuse.GotoDefinition",
+    Arguments:
+    {
+        SyntaxType: FuseSyntaxType, // Typically "UX" or "Uno"
+        Path: string, // Path to document where suggestion is requested
+        Text: string, // Full source of document where suggestion is requested
+        CaretPosition: CaretPosition // 1-indexed text position within Text where suggestion is requested
+    }
 }
 
 type FuseSelectionChangedEvent = {
-    Name:  "Fuse.Preview.SelectionChanged",
+    Name: "Fuse.Preview.SelectionChanged",
     Data:
     {
-    	Path: string, // Path to the file where selection was changed
+        Path: string, // Path to the file where selection was changed
         Text: string, // Full source of document
         CaretPosition: CaretPosition // 1-indexed text position within Text where selection was changed
     }
@@ -246,50 +246,50 @@ type FuseBuildEvents = FuseBuildStartedEvent | FuseBuildEndedEvent | FuseBuildIs
 
 type FuseBuildStartedEvent = {
     Name: "Fuse.BuildStarted",
-	SubscriptionId?: number,
-	Data:
+    SubscriptionId?: number,
+    Data:
     {
-		BuildType: "FullCompile" | "LoadMarkup", // This means the whole project is built. Can also be "LoadMarkup", which means that we're live-reloading an already built app
-		BuildId: string, // A GUID that identifies this build, keep it around if you're intereseted in which build events are related to this build
-		BuildTag: string, // Build-tag is a way to recognize build events from a build you started yourself. We can set it using `fuse preview --name=<YourTag>`. The default value is emtpy or null.
-		PreviewId: string, // If build type is "LoadMarkup", the BuildId of the initial full compile used by preview
-		ProjectPath: string, // The native path to the project file being built
-		Target: "DotNetDll" | "iOS" | "Android", // The target of the build. The supported targets are "DotNetDll" (local preview), "iOS" and "Android". Other targets include "DotNetExe", "CMake", "MSVC12", "WebGL" and "Unknown".
+        BuildType: "FullCompile" | "LoadMarkup", // This means the whole project is built. Can also be "LoadMarkup", which means that we're live-reloading an already built app
+        BuildId: string, // A GUID that identifies this build, keep it around if you're intereseted in which build events are related to this build
+        BuildTag: string, // Build-tag is a way to recognize build events from a build you started yourself. We can set it using `fuse preview --name=<YourTag>`. The default value is emtpy or null.
+        PreviewId: string, // If build type is "LoadMarkup", the BuildId of the initial full compile used by preview
+        ProjectPath: string, // The native path to the project file being built
+        Target: "DotNetDll" | "iOS" | "Android", // The target of the build. The supported targets are "DotNetDll" (local preview), "iOS" and "Android". Other targets include "DotNetExe", "CMake", "MSVC12", "WebGL" and "Unknown".
     }
 }
 
 type FuseBuildLoggedEvent = {
     Name: "Fuse.BuildLogged",
-	SubscriptionId?: number,
-	Data:
-	{
-		BuildId:  string,
-		Message: string
-	}
+    SubscriptionId?: number,
+    Data:
+    {
+        BuildId: string,
+        Message: string
+    }
 }
 
 export type FuseBuildIssueDetectedEvent = {
-	Name: "Fuse.BuildIssueDetected",
-	SubscriptionId: number,
-	Data:
-	{
-		BuildId:  string;
-		IssueType:  "Unknown" | "FatalError"|  "Error"|  "Warning" | "Message"
-		Path?: string, // Path to the file where the error supposedly occurred. Can be empty in other words optional.
-		StartPosition?: CaretPosition, // 1-indexed start position in the file where the error is occurred (Optional)
-		EndPosition?: CaretPosition, // 1-indexed end position in the file where the error occurred (Optional)
-		ErrorCode: string, // Error code generated by the Uno compiler
-		Message: string // A human readable description of the issue
-	}
+    Name: "Fuse.BuildIssueDetected",
+    SubscriptionId: number,
+    Data:
+    {
+        BuildId: string;
+        IssueType: "Unknown" | "FatalError" | "Error" | "Warning" | "Message"
+        Path?: string, // Path to the file where the error supposedly occurred. Can be empty in other words optional.
+        StartPosition?: CaretPosition, // 1-indexed start position in the file where the error is occurred (Optional)
+        EndPosition?: CaretPosition, // 1-indexed end position in the file where the error occurred (Optional)
+        ErrorCode: string, // Error code generated by the Uno compiler
+        Message: string // A human readable description of the issue
+    }
 }
 
 
 type FuseBuildEndedEvent = {
-	Name: "Fuse.BuildEnded",
-	SubscriptionId: number,
-	Data:
-	{
-		BuildId:  string,
-		Status: "InternalError" | "Error" | "Success"
-	}
+    Name: "Fuse.BuildEnded",
+    SubscriptionId: number,
+    Data:
+    {
+        BuildId: string,
+        Status: "InternalError" | "Error" | "Success"
+    }
 }

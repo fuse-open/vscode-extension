@@ -28,8 +28,7 @@ export function activate(context: vscode.ExtensionContext) {
     const commandiOSPreview = vscode.commands.registerCommand('fuse.preview.ios', () => {
         fuseiOSPreview();
     });
-    const commandLocalDebug = vscode.commands.registerCommand('fuse.preview.local.debug', () =>
-    {
+    const commandLocalDebug = vscode.commands.registerCommand('fuse.preview.local.debug', () => {
         fuseLocalDebug();
     });
 
