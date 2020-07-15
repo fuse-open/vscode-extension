@@ -14,6 +14,8 @@ Fuse extension for Visual Studio Code. This plugin uses information and code fro
 - Update UX from Fuse Studio
 - Diagnostics on compiler errors, list appears in the PROBLEMS-tab
 - Keybindings for starting preview window
+- Auto close tag ux file
+- Set cursor position when auto close tag
 
 ## Extension Settings
 
