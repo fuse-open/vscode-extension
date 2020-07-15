@@ -5,7 +5,7 @@
     "author": "Fuse Open",
     "icon": "images/icon.png",
     "license": "MIT",
-    "version": "0.0.1",
+    "version": "0.5.0",
     "publisher": "fuseopen",
     "repository": {
         "type": "git",
@@ -13,7 +13,7 @@
     },
     "homepage": "https://fuseopen.com/",
     "engines": {
-        "vscode": "^1.12.0"
+        "vscode": "^1.34.0"
     },
     "categories": [
         "Programming Languages"
@@ -54,7 +54,8 @@
                 "aliases": [],
                 "extensions": [
                     ".unoproj"
-                ]
+                ],
+                "configuration": "./languages/unoproj.json"
             },
             {
                 "id": "uno",
