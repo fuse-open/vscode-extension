@@ -25,10 +25,6 @@ This extension currently has no configurable settings.
 
 See issues on repository.
 
-## Release Notes
-
-Initial release.
-
 ## Develop
 
 Run `npm install` after cloning. Start code in the directory using `code .`. Press F5 to launch extension development sandbox.
