@@ -102,7 +102,11 @@ export class FuseDaemon {
             return this.fuseClient;
         }
 
-        this.fuseClient = spawn("fuse", ['daemon-client', 'vscode client']);
+        var fuse = process.platform === "win32"
+            ? "fuse.cmd"
+            : "fuse";
+
+        this.fuseClient = spawn(fuse, ['daemon-client', 'vscode client']);
 
         this.fuseClient.stdout.on('data', FuseDaemon.instance.onData);
         this.fuseClient.stderr.on('data', FuseDaemon.instance.onError);
