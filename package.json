@@ -1,7 +1,7 @@
 {
     "name": "fuse-vscode",
-    "displayName": "Fuse Extension",
-    "description": "Fuse extension for Visual Studio Code. Read more at https://fuseopen.com/",
+    "displayName": "Fuse Open",
+    "description": "Uno/UX language support and tools for working with Fuse apps. Read more at https://fuseopen.com/",
     "author": "Fuse Open",
     "icon": "images/icon.png",
     "license": "MIT",
@@ -9,7 +9,7 @@
     "publisher": "fuseopen",
     "repository": {
         "type": "git",
-        "url": "https://github.com/fuse-open/Fuse.VSCodePlugin.git"
+        "url": "https://github.com/fuse-open/vscode-extension.git"
     },
     "homepage": "https://fuseopen.com/",
     "engines": {
