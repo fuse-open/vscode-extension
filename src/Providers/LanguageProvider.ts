@@ -8,7 +8,8 @@ import {
     DefinitionProvider,
     Definition,
     Location,
-    Uri
+    Uri,
+    SnippetString
 } from 'vscode';
 
 import { FuseDaemon, CaretPosition } from '../Fuse/Daemon';
@@ -91,7 +92,11 @@ export class LanguageProvider implements CompletionItemProvider, DefinitionProvi
             return result.CodeSuggestions.map((item => {
                 const kind = getRemapFuseKind(item.Type)
 
-                return new CompletionItem(item.Suggestion, kind);
+                let completionItem = new CompletionItem(item.Suggestion, kind);
+                if (kind == CompletionItemKind.Property && this.language == 'UX') {
+                    completionItem.insertText = new SnippetString(`${item.Suggestion}="$0"`);
+                }
+                return completionItem;
             }));
         }
 
