@@ -1,0 +1,694 @@
+{
+    "Create Page Class": {
+        "prefix": "classpage",
+        "body": [
+            "<Page ux:Class=\"${1:class_name}\">",
+            "\t<string ux:Property=\"Label\">",
+            "\n",
+            "\t$TM_SELECTED_TEXT${0}",
+            "</Page>"
+        ]
+    },
+    "Create Page Class with Dock Layout": {
+        "prefix": "classpagedock",
+        "body": [
+            "<Page ux:Class=\"${1:class_name}\">",
+            "\t<string ux:Property=\"Label\">",
+            "\n",
+            "\t<DockLayout />",
+            "\t<StatusBarBackground Dock=\"Top\" />",
+            "\t<BottomBarBackground Dock=\"Bottom\" />",
+            "\t<Panel>",
+            "\t\t$TM_SELECTED_TEXT${0}",
+            "\t</Panel>",
+            "</Page>"
+        ]
+    },
+    "Create PageControl Class": {
+        "prefix": "classpagecontrol",
+        "body": [
+            "<PageControl ux:Class=\"${1:class_name}\">",
+            "\n",
+            "\t<Panel>",
+            "\t\t<Text Value=\"Page 1\" Alignment=\"Center\">",
+            "\t</Panel>",
+            "\t<Panel>",
+            "\t\t<Text Value=\"Page 2\" Alignment=\"Center\">",
+            "\t</Panel>",
+            "\t<Panel>",
+            "\t\t<Text Value=\"Page 3\" Alignment=\"Center\">",
+            "\t</Panel>",
+            "</PageControl>"
+        ]
+    },
+    "Create Panel Class": {
+        "prefix": "classpanel",
+        "body": [
+            "<Panel ux:Class=\"${1:class_name}\">",
+            "\t<string ux:Property=\"Label\">",
+            "\n",
+            "\t$TM_SELECTED_TEXT${0}",
+            "</Panel>"
+        ]
+    },
+    "Create Stack Panel Class": {
+        "prefix": "classpanelstack",
+        "body": [
+            "<StackPanel ux:Class=\"${1:class_name}\">",
+            "\t<string ux:Property=\"Label\">",
+            "\n",
+            "\t$TM_SELECTED_TEXT${0}",
+            "</StackPanel>"
+        ]
+    },
+    "Create Grid Class": {
+        "prefix": "classgrid",
+        "body": [
+            "<Grid ux:Class=\"${1:class_name}\">",
+            "\t<string ux:Property=\"Label\">",
+            "\n",
+            "\t$TM_SELECTED_TEXT${0}",
+            "</Grid>"
+        ]
+    },
+    "Create Dock Panel Class": {
+        "prefix": "classpaneldock",
+        "body": [
+            "<DockPanel ux:Class=\"${1:class_name}\">",
+            "\t<string ux:Property=\"Label\">",
+            "\n",
+            "\t$TM_SELECTED_TEXT${0}",
+            "</DockPanel>"
+        ]
+    },
+    "Create Rectangle Class": {
+        "prefix": "classrectangle",
+        "body": [
+            "<Rectangle ux:Class=\"${1:class_name}\">",
+            "\t<string ux:Property=\"Label\">",
+            "\n",
+            "\t$TM_SELECTED_TEXT${0}",
+            "</Rectangle>"
+        ]
+    },
+    "Create Circle Class": {
+        "prefix": "classcircle",
+        "body": [
+            "<Circle ux:Class=\"${1:class_name}\">",
+            "\t<string ux:Property=\"Label\">",
+            "\n",
+            "\t$TM_SELECTED_TEXT${0}",
+            "</Circle>"
+        ]
+    },
+    "Create Text Class": {
+        "prefix": "classtext",
+        "body": [
+            "<Text ux:Class=\"${1:class_name}\" Font=\"${2|UltraLight,Thin,Light,Regular,Medium,Bold,UltraLightItalic,ThinItalic,LightItalic,Italic,MediumItalic,BoldItalic|}\" FontSize=\"${3}\" Color=\"${4}\" />${0}"
+        ]
+    },
+    "Create String Property Class": {
+        "prefix": "propstring",
+        "body": [
+            "<string ux:Property=\"${1}\" />${0}"
+        ]
+    },
+    "Create Boolean Property Class": {
+        "prefix": "propbool",
+        "body": [
+            "<bool ux:Property=\"${1}\" />${0}"
+        ]
+    },
+    "Create float Property Class": {
+        "prefix": "propfloat",
+        "body": [
+            "<float ux:Property=\"${1}\" />${0}"
+        ]
+    },
+    "Create float2 Property Class": {
+        "prefix": "propfloat2",
+        "body": [
+            "<float2 ux:Property=\"${1}\" />${0}"
+        ]
+    },
+    "Create float3 Property Class": {
+        "prefix": "propfloat2",
+        "body": [
+            "<float3 ux:Property=\"${1}\" />${0}"
+        ]
+    },
+    "Create float4 Property Class": {
+        "prefix": "propfloat2",
+        "body": [
+            "<float4 ux:Property=\"${1}\" />${0}"
+        ]
+    },
+    "Create object Property Class": {
+        "prefix": "propobject",
+        "body": [
+            "<object ux:Property=\"${1}\" />${0}"
+        ]
+    },
+    "Create type Property Class": {
+        "prefix": "proptype",
+        "body": [
+            "<${1} ux:Property=\"${2}\" />${0}"
+        ]
+    },
+    "Create ux dependency Class": {
+        "prefix": "dependency",
+        "body": [
+            "<${1} ux:Dependency=\"${2}\" />${0}"
+        ]
+    },
+    "Create ux global": {
+        "prefix": "global",
+        "body": [
+            "<${1} ux:Global=\"${1}\" ux:Value=\"${2}\" />${0}"
+        ]
+    },
+    "Create ux key": {
+        "prefix": "key",
+        "body": [
+            "<${1} ux:Key=\"${1}\" ux:Value=\"${2}\" />${0}"
+        ]
+    },
+    "Create Let Bool": {
+        "prefix": "bool",
+        "body": [
+            "<LetBool ux:Name=\"${1}\" Value=\"${2}\" />${0}"
+        ]
+    },
+    "Create Let String": {
+        "prefix": "string",
+        "body": [
+            "<LetString ux:Name=\"${1}\" Value=\"${2}\" />${0}"
+        ]
+    },
+    "Create Let Float": {
+        "prefix": "float",
+        "body": [
+            "<LetFloat ux:Name=\"${1}\" Value=\"${2}\" />${0}"
+        ]
+    },
+    "Create Let Float2": {
+        "prefix": "float2",
+        "body": [
+            "<LetFloat2 ux:Name=\"${1}\" Value=\"${2}\" />${0}"
+        ]
+    },
+    "Create Let Float3": {
+        "prefix": "float3",
+        "body": [
+            "<LetFloat3 ux:Name=\"${1}\" Value=\"${2}\" />${0}"
+        ]
+    },
+    "Create Let Float4": {
+        "prefix": "float4",
+        "body": [
+            "<LetFloat4 ux:Name=\"${1}\" Value=\"${2}\" />${0}"
+        ]
+    },
+    "Create Let Size": {
+        "prefix": "size",
+        "body": [
+            "<LetSize ux:Name=\"${1}\" Value=\"${2}\" />${0}"
+        ]
+    },
+    "Create Let Size2": {
+        "prefix": "size2",
+        "body": [
+            "<LetSize2 ux:Name=\"${1}\" Value=\"${2}\" />${0}"
+        ]
+    },
+    "Create Curve": {
+        "prefix": "curve",
+        "body": [
+            "<Curve StrokeWidth=\"${1}\" StrokeColor=\"${0}\">",
+            "\t<CurvePoint At=\"0.00,0.0\"/>",
+            "\t<CurvePoint At=\"0.25,0.4\"/>",
+            "\t<CurvePoint At=\"0.50,0.1\"/>",
+            "\t<CurvePoint At=\"0.75,0.9\"/>",
+            "\t<CurvePoint At=\"1,0.6\"/>",
+            "</Curve>"
+        ]
+    },
+    "Create Gradient": {
+        "prefix": "gradient",
+        "body": [
+            "<LinearGradient StartPoint=\"${1}\" EndPoint=\"${0}\">",
+            "\t<GradientStop Offset=\"0\" Color=\"${2}\"/>",
+            "\t<GradientStop Offset=\"1\" Color=\"${3}\"/>",
+            "</LinearGradient>"
+        ]
+    },
+    "Create Rectangle": {
+        "prefix": "rectangle",
+        "body": [
+            "<Rectangle Color=\"${1}\" StrokeColor=\"${2}\" StrokeWidth=\"${3}\" CornerRadius=\"${4}\" ux:Name=\"${5}\">",
+            "\t$TM_SELECTED_TEXT${0}",
+            "</Rectangle>"
+        ]
+    },
+    "Create Rectangle background": {
+        "prefix": "rectanglebackground",
+        "body": [
+            "<Rectangle Layer=\"{1|Background,Overlay|}\" Color=\"${2}\" ux:Name=\"${3}\" CornerRadius=\"${0}\" />"
+        ]
+    },
+    "Create Rectangle Background plus shadow": {
+        "prefix": "rectanglebackgroundshadow",
+        "body": [
+            "<Rectangle Layer=\"Background\" Color=\"${1}\" CornerRadius=\"${0}\">",
+            "\t<Shadow />",
+            "</Rectangle>"
+        ]
+    },
+    "Create Circle": {
+        "prefix": "circle",
+        "body": [
+            "<Circle Color=\"${1}\" StrokeColor=\"${2}\" StrokeWidth=\"${3}\" ux:Name=\"${4}\">",
+            "\t$TM_SELECTED_TEXT${0}",
+            "</Circle>"
+        ]
+    },
+    "Create Text": {
+        "prefix": "text",
+        "body": [
+            "<Text Font=\"${1|UltraLight,Thin,Light,Regular,Medium,Bold,UltraLightItalic,ThinItalic,LightItalic,Italic,MediumItalic,BoldItalic|}\" FontSize=\"${2:14}\" Color=\"${3:Black}\" TextAlignment=\"${4|Left,Center,Right|}\" TextWrapping=\"${5|Wrap,NoWrap|}\" />"
+        ]
+    },
+    "Create Panel Rounded": {
+        "prefix": "panelrounded",
+        "body": [
+            "<Panel ux:Name=\"${1}\">",
+            "\t<Rectangle Layer=\"Background\" Color=\"White\" CornerRadius=\"20\">",
+            "\t\t<Shadow />",
+            "\t</Rectangle>",
+            "\t$TM_SELECTED_TEXT${0}",
+            "</Panel>"
+        ]
+    },
+    "Create Stack Panel": {
+        "prefix": "panelstack",
+        "body": [
+            "<StackPanel ux:Name=\"${1}\" ItemSpacing=\"${2}\" Orientation=\"${3|Vertical,Horizontal|}\">",
+            "\t$TM_SELECTED_TEXT${0}",
+            "</StackPanel>"
+        ]
+    },
+    "Create Grid Same Size": {
+        "prefix": "gridsamesize",
+        "body": [
+            "<Grid ux:Name=\"${1}\" RowCount=\"${2}\" ColumnCount=\"${3}\">",
+            "\t$TM_SELECTED_TEXT${0}",
+            "</Grid>"
+        ]
+    },
+    "Create Grid Ratio": {
+        "prefix": "gridratio",
+        "body": [
+            "<Grid ux:Name=\"${1}\" Rows=\"${2}\" Columns=\"${3}\">",
+            "\t$TM_SELECTED_TEXT${0}",
+            "</Grid>"
+        ]
+    },
+    "Create Dock Panel": {
+        "prefix": "paneldock",
+        "body": [
+            "<DockPanel ux:Name=\"${1}\" >",
+            "\t$TM_SELECTED_TEXT${0}",
+            "</DockPanel>"
+        ]
+    },
+    "Create Dock Panel Top Down": {
+        "prefix": "paneldocktopdown",
+        "body": [
+            "<DockPanel ux:Name=\"${1}\" >",
+            "\t<Panel Dock=\"Top\" Height=\"56\" />",
+            "\t<Panel Dock=\"Bottom\" Height=\"56\" />",
+            "\t$TM_SELECTED_TEXT${0}",
+            "</DockPanel>"
+        ]
+    },
+    "Create Dock Panel Left Right": {
+        "prefix": "paneldockleftright",
+        "body": [
+            "<DockPanel ux:Name=\"${1}\" >",
+            "\t<Panel Dock=\"Left\" Width=\"56\" />",
+            "\t<Panel Dock=\"Right\" Width=\"56\" />",
+            "\t$TM_SELECTED_TEXT${0}",
+            "</DockPanel>"
+        ]
+    },
+    "Create Dock Panel Complete": {
+        "prefix": "paneldockcomplete",
+        "body": [
+            "<DockPanel ux:Name=\"${1}\" >",
+            "\t<Panel Dock=\"Top\" Height=\"56\" />",
+            "\t<Panel Dock=\"Bottom\" Height=\"56\" />",
+            "\t<Panel Dock=\"Left\" Width=\"56\" />",
+            "\t<Panel Dock=\"Right\" Width=\"56\" />",
+            "\t<Panel Dock=\"Fill\">",
+            "\t\t$TM_SELECTED_TEXT${0}",
+            "\t</Panel>",
+            "</DockPanel>"
+        ]
+    },
+    "Create ScrollView": {
+        "prefix": "scrollview",
+        "body": [
+            "<ScrollView ux:Name=\"${1}\" AllowedScrollDirections=\"${2|Vertical,Horizontal,Both|}\" LayoutMode=\"PreserveVisual\">",
+            "\t<StackPanel ItemSpacing=\"${3}\" Orientation=\"${4|Vertical,Horizontal|}\">",
+            "\t\t$TM_SELECTED_TEXT${0}",
+            "\t</StackPanel>",
+            "</ScrollView>"
+        ]
+    },
+    "Create Listview": {
+        "prefix": "listview",
+        "body": [
+            "<ScrollView ux:Name=\"${1}\" AllowedScrollDirections=\"Vertical\" LayoutMode=\"PreserveVisual\">",
+            "\t<StackPanel ItemSpacing=\"${2}\" Orientation=\"Vertical\">",
+            "\t\t<Each Count=\"5\">",
+            "\t\t\t<Panel Height=\"50\">",
+            "\t\t\t\t<Text Value=\"Item : #{= index() }\"/>",
+            "\t\t\t</Panel>",
+            "\t\t$TM_SELECTED_TEXT${0}",
+            "\t\t</Each>",
+            "\t</StackPanel>",
+            "</ScrollView>"
+        ]
+    },
+    "Create Listview Horizontal": {
+        "prefix": "listviewhorizontal",
+        "body": [
+            "<ScrollView ux:Name=\"${1}\" AllowedScrollDirections=\"Horizontal\" LayoutMode=\"PreserveVisual\">",
+            "\t<StackPanel ItemSpacing=\"${2}\" Orientation=\"Horizontal\" Height=\"100\">",
+            "\t\t<Each Count=\"5\">",
+            "\t\t\t<Panel Width=\"50\">",
+            "\t\t\t\t<Text Value=\"Item : #{= index() }\"/>",
+            "\t\t\t</Panel>",
+            "\t\t$TM_SELECTED_TEXT${0}",
+            "\t\t</Each>",
+            "\t</StackPanel>",
+            "</ScrollView>"
+        ]
+    },
+    "Create Each": {
+        "prefix": "each",
+        "body": [
+            "<Each Items=\"{${1}}\">",
+            "\t$TM_SELECTED_TEXT${0}",
+            "</Each>"
+        ]
+    },
+    "Create Each Count": {
+        "prefix": "eachcount",
+        "body": [
+            "<Each Count=\"${1}\">",
+            "\t$TM_SELECTED_TEXT${0}",
+            "</Each>"
+        ]
+    },
+    "Create Each with default visual row": {
+        "prefix": "eachtpl",
+        "body": [
+            "<Each Items=\"{${1}}\">",
+            "\t<Panel Width=\"50\">",
+            "\t\t<Text Value=\"Item : #{= index() }\"/>",
+            "\t</Panel>",
+            "\t$TM_SELECTED_TEXT${0}",
+            "</Each>"
+        ]
+    },
+    "Create Each Count with default visual row": {
+        "prefix": "eachcounttpl",
+        "body": [
+            "<Each Count=\"${1}\">",
+            "\t<Panel Width=\"50\">",
+            "\t\t<Text Value=\"Item : #{= index() }\"/>",
+            "\t</Panel>",
+            "\t$TM_SELECTED_TEXT${0}",
+            "</Each>"
+        ]
+    },
+    "NativeViewHost": {
+        "prefix": "nativeviewhost",
+        "body": [
+            "<NativeViewHost>",
+            "\t$TM_SELECTED_TEXT${0}",
+            "</NativeViewHost>"
+        ]
+    },
+    "GraphicsView": {
+        "prefix": "graphicsview",
+        "body": [
+            "<GraphicsView>",
+            "\t$TM_SELECTED_TEXT${0}",
+            "</GraphicsView>"
+        ]
+    },
+    "JavaScript": {
+        "prefix": "javascript",
+        "body": [
+            "<JavaScript>",
+            "\tvar Observable = require('FuseJS/Observable')",
+            "\tmodule.exports = {$TM_SELECTED_TEXT${0}}",
+            "</JavaScript>"
+        ]
+    },
+    "Create Image from File": {
+        "prefix": "imagefile",
+        "body": [
+            "<Image File=\"${0}\" StretchMode=\"UniformToFill\" MemoryPolicy=\"${1|PreloadRetain,UnloadUnused,QuickUnload,UnloadInBackgroundPolicy|}\" />"
+        ]
+    },
+    "Create Image from URL": {
+        "prefix": "imageurl",
+        "body": [
+            "<Image Url=\"${0}\" StretchMode=\"UniformToFill\" MemoryPolicy=\"${1|PreloadRetain,UnloadUnused,QuickUnload,UnloadInBackgroundPolicy|}\" />"
+        ]
+    },
+    "Create Multi density Image from File": {
+        "prefix": "imagefiledensity",
+        "body": [
+            "<Image StretchMode=\"UniformToFill\" MemoryPolicy=\"${1|PreloadRetain,UnloadUnused,QuickUnload,UnloadInBackgroundPolicy|}\" >",
+            "\t<MultiDensityImageSource>",
+            "\t\t<FileImageSource Density=\"1\" File=\"${2}\" />",
+            "\t\t<FileImageSource Density=\"2\" File=\"${3}\" />",
+            "\t\t<FileImageSource Density=\"3\" File=\"${0}\" />",
+            "\t</MultiDensityImageSource>",
+            "</Image>"
+        ]
+    },
+    "Create Multi density Image from URL": {
+        "prefix": "imageurldensity",
+        "body": [
+            "<Image StretchMode=\"UniformToFill\" MemoryPolicy=\"${1|PreloadRetain,UnloadUnused,QuickUnload,UnloadInBackgroundPolicy|}\" >",
+            "\t<MultiDensityImageSource>",
+            "\t\t<HttpImageSource Density=\"1\" Url=\"${2}\" />",
+            "\t\t<HttpImageSource Density=\"2\" Url=\"${3}\" />",
+            "\t\t<HttpImageSource Density=\"3\" Url=\"${0}\" />",
+            "\t</MultiDensityImageSource>",
+            "</Image>"
+        ]
+    },
+    "Image Viewer": {
+        "prefix": "imageviewer",
+        "body": [
+            "<Panel HitTestMode=\"LocalBounds\">",
+            "\t<object ux:Property=\"Image\">",
+            "\t<Image File=\"{Property this.Image}\">",
+            "\t\t<InteractiveTransform ux:Name=\"ImageTrans\" />",
+            "\t</Image>",
+            "\t<ZoomGesture Target=\"ImageTrans\"/>",
+            "\t<PanGesture Target=\"ImageTrans\"/>",
+            "\t<RotateGesture Target=\"ImageTrans\"/>",
+            "</Panel>"
+        ]
+    },
+    "Create Video from File": {
+        "prefix": "videofile",
+        "body": [
+            "<Video File=\"${0}\" StretchMode=\"UniformToFill\" AutoPlay=\"${1|true,false|}\" IsLooping=\"${1|true,false|}\" />"
+        ]
+    },
+    "Create Video from URL": {
+        "prefix": "videourl",
+        "body": [
+            "<Video Url=\"${0}\" StretchMode=\"UniformToFill\" AutoPlay=\"${1|true,false|}\" IsLooping=\"${1|true,false|}\"/>"
+        ]
+    },
+    "Create Video Player from File": {
+        "prefix": "videoplayerfile",
+        "body": [
+            "<DockPanel>",
+            "\t<Video ux:Name=\"video\" Dock=\"Fill\" File=\"${0}\" StretchMode=\"UniformToFill\" AutoPlay=\"${1|true,false|}\">",
+            "\t\t<ProgressAnimation>",
+            "\t\t\t<Change progressBar.Width=\"100\" />",
+            "\t\t</ProgressAnimation>",
+            "\t</Video>",
+            "\t<Rectangle ux:Name=\"progressBar\" Dock=\"Bottom\" Fill=\"#f00\" Width=\"0%\" Height=\"10\" />",
+            "\t<Grid Dock=\"Bottom\" ColumnCount=\"2\" RowCount=\"1\">",
+            "\t\t<Button Text=\"Play\">",
+            "\t\t<Clicked>",
+            "\t\t\t<Resume Target=\"video\" />",
+            "\t\t</Clicked>",
+            "\t\t</Button>",
+            "\t\t<Button Text=\"Pause\">",
+            "\t\t<Clicked>",
+            "\t\t\t<Pause Target=\"video\" />",
+            "\t\t</Clicked>",
+            "\t\t</Button>",
+            "\t</Grid>",
+            "</DockPanel>"
+        ]
+    },
+    "Create Video Player from URL": {
+        "prefix": "videoplayerurl",
+        "body": [
+            "<DockPanel>",
+            "\t<Video ux:Name=\"video\" Dock=\"Fill\" Url=\"${0}\" StretchMode=\"UniformToFill\" AutoPlay=\"${1|true,false|}\">",
+            "\t\t<ProgressAnimation>",
+            "\t\t\t<Change progressBar.Width=\"100\" />",
+            "\t\t</ProgressAnimation>",
+            "\t</Video>",
+            "\t<Rectangle ux:Name=\"progressBar\" Dock=\"Bottom\" Fill=\"#f00\" Width=\"0%\" Height=\"10\" />",
+            "\t<Grid Dock=\"Bottom\" ColumnCount=\"2\" RowCount=\"1\">",
+            "\t\t<Button Text=\"Play\">",
+            "\t\t<Clicked>",
+            "\t\t\t<Resume Target=\"video\" />",
+            "\t\t</Clicked>",
+            "\t\t</Button>",
+            "\t\t<Button Text=\"Pause\">",
+            "\t\t<Clicked>",
+            "\t\t\t<Pause Target=\"video\" />",
+            "\t\t</Clicked>",
+            "\t\t</Button>",
+            "\t</Grid>",
+            "</DockPanel>"
+        ]
+    },
+    "Create Map View": {
+        "prefix": "mapview",
+        "body": [
+            "<NativeViewHost>",
+            "\t<MapView Latitude=\"${1}\" Longitude=\"${2}\" Zoom=\"10\">",
+            "\t\t<MapMarker Latitude=\"${3}\" Longitude=\"${4}\" Label=\"${5}\"/>${0}",
+            "\t</MapView>",
+            "</NativeViewHost>"
+        ]
+    },
+    "Create Web View Source URL": {
+        "prefix": "webviewurl",
+        "body": [
+            "<NativeViewHost>",
+            "\t<WebView Url=\"http://www.google.com${0}\">",
+            "\t\t<WhilePageLoading>",
+            "\t\t</WhilePageLoading>",
+            "\t\t<PageLoaded>",
+            "\t\t</PageLoaded>",
+            "\t</WebView>",
+            "</NativeViewHost>"
+        ]
+    },
+    "Create Web View Source HTML": {
+        "prefix": "webviewhtml",
+        "body": [
+            "<NativeViewHost>",
+            "\t<WebView>",
+            "\t\t<HTML>",
+            "\t\t\t<![CDATA[",
+            "\t\t\t\t${0}",
+            "\t\t\t]]>",
+            "\t\t</HTML>",
+            "\t</WebView>",
+            "</NativeViewHost>"
+        ]
+    },
+    "Margin Padding": {
+        "prefix": "marginpadding",
+        "body": [
+            "Margin=\"${1:0}\" Padding=\"${2:0}\" ${0}"
+        ]
+    },
+    "Alignment Center": {
+        "prefix": "alcenter",
+        "body": [
+            "Alignment=\"Center\" ${0}"
+        ]
+    },
+    "Alignment Left": {
+        "prefix": "alleft",
+        "body": [
+            "Alignment=\"Left\" ${0}"
+        ]
+    },
+    "Alignment Right": {
+        "prefix": "alright",
+        "body": [
+            "Alignment=\"Right\" ${0}"
+        ]
+    },
+    "Alignment Top": {
+        "prefix": "altop",
+        "body": [
+            "Alignment=\"Top\" ${0}"
+        ]
+    },
+    "Alignment Bottom": {
+        "prefix": "albottom",
+        "body": [
+            "Alignment=\"Bottom\" ${0}"
+        ]
+    },
+    "Alignment TopLeft": {
+        "prefix": "altopleft",
+        "body": [
+            "Alignment=\"TopLeft\" ${0}"
+        ]
+    },
+    "Alignment BottomLeft": {
+        "prefix": "albottomleft",
+        "body": [
+            "Alignment=\"BottomLeft\" ${0}"
+        ]
+    },
+    "Alignment TopRight": {
+        "prefix": "altopright",
+        "body": [
+            "Alignment=\"TopRight\" ${0}"
+        ]
+    },
+    "Alignment BottomRight": {
+        "prefix": "albottomright",
+        "body": [
+            "Alignment=\"BottomRight\" ${0}"
+        ]
+    },
+    "Alignment Vertical Center": {
+        "prefix": "alcentervertical",
+        "body": [
+            "Alignment=\"VerticalCenter\" ${0}"
+        ]
+    },
+    "Alignment Horizontal Center": {
+        "prefix": "alcenterhorizontal",
+        "body": [
+            "Alignment=\"HorizontalCenter\" ${0}"
+        ]
+    },
+    "Alignment Left Center": {
+        "prefix": "alcenterleft",
+        "body": [
+            "Alignment=\"CenterLeft\" ${0}"
+        ]
+    },
+    "Alignment Right Center": {
+        "prefix": "alcenterright",
+        "body": [
+            "Alignment=\"CenterRight\" ${0}"
+        ]
+    }
+}
