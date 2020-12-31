@@ -16,6 +16,8 @@ Fuse extension for Visual Studio Code. This plugin uses information and code fro
 - Keybindings for starting preview window
 - Auto close tag ux file
 - Set cursor position when auto close tag
+- Set auto insert double quotes when accepting code completion and typing `=` symbol on UX property
+- Lots of UX Snippets for faster and easier to code
 
 ## Extension Settings
 

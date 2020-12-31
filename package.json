@@ -102,6 +102,12 @@
                 "fileMatch": "*.unoproj",
                 "url": "./languages/unoproj.json"
             }
+        ],
+        "snippets": [
+            {
+                "language": "ux",
+                "path": "./snippets/ux.json"
+            }
         ]
     },
     "scripts": {

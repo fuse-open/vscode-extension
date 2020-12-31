@@ -7,7 +7,7 @@ import { fuseLocalPreview, fuseAndroidPreview, fuseiOSPreview, fuseLocalDebug } 
 import { LanguageProvider } from './Providers/LanguageProvider';
 import { HighlightProvider } from './Providers/HighlightProvider';
 import { Diagnostics } from './Providers/Diagnostics';
-import { uxAutoCloseTag } from './Providers/SyntaxProvider'
+import { uxAutoCloseTag, uxAutoQuotes } from './Providers/SyntaxProvider'
 
 let statusBar: StatusBar;
 let diagnostics: Diagnostics;
@@ -95,9 +95,10 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.languages.registerCompletionItemProvider({ scheme: 'file', language: 'uno' }, unoLanguageFeatures);
     vscode.languages.registerDefinitionProvider({ scheme: 'file', language: 'ux' }, uxLanguageFeatures);
     vscode.languages.registerDefinitionProvider({ scheme: 'file', language: 'uno' }, unoLanguageFeatures);
-    // Auto close tag
+    // Auto close tag, Auto add quotes when type sign (=)
     vscode.workspace.onDidChangeTextDocument(event => {
         uxAutoCloseTag(event);
+        uxAutoQuotes(event);
     });
     // Auto Indent when hit enter
     vscode.languages.setLanguageConfiguration('ux', {

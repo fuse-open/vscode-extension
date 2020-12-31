@@ -1,5 +1,33 @@
 import * as vscode from 'vscode';
 
+export function uxAutoQuotes(event: vscode.TextDocumentChangeEvent): void {
+    if (event.document.languageId !== 'ux')
+        return;
+    if (!event.contentChanges[0]) {
+        return;
+    }
+    let editor = vscode.window.activeTextEditor;
+    if (!editor) {
+        return;
+    }
+    let selection = editor.selection;
+    let originalPosition = selection.start.translate(0, 1);
+    let middlePosition = selection.start.translate(0, 2);
+
+    let textLine = editor.document.lineAt(selection.start);
+    let withinOpenTag = /<([a-zA-Z][a-zA-Z0-9:\-_.]*)/.test(textLine.text)
+    if (withinOpenTag && event.contentChanges[0].text === "=") {
+        let result = /=(?=[^"]*"[^"]*(?:"[^"]*"[^"]*)*$)/.exec(textLine.text) // check if it's inside a string
+        if (result == null)
+            editor.edit((editBuilder) => {
+                editBuilder.insert(originalPosition, '""');
+            }).then(() => {
+                if (editor)
+                    editor.selection = new vscode.Selection(middlePosition, middlePosition);
+            });
+    }
+}
+
 export function uxAutoCloseTag(event: vscode.TextDocumentChangeEvent): void {
     if (event.document.languageId !== 'ux')
         return;
