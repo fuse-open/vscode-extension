@@ -3,6 +3,11 @@ All notable changes to the "fuse-vscode" extension will be documented in this fi
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## 2.0.0
+
+- Compatible with fuse X (https://fuse-x.com), the new version of Fuse Studio.
+- Many improvements!
+
 ## 0.5.0
 
 - Refactor source files & reorganize folders
