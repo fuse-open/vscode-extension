@@ -1,5 +1,7 @@
 # fuse-vscode
 
+[![Marketplace](https://vsmarketplacebadge.apphb.com/version/fuseopen.fuse-vscode.svg)](https://marketplace.visualstudio.com/items?itemName=fuseopen.fuse-vscode)
+
 Fuse extension for Visual Studio Code. This plugin uses information and code from:
 
 - https://fuseopen.com/docs/technical-corner/fuse-protocol
