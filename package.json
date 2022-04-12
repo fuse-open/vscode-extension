@@ -13,7 +13,7 @@
     },
     "homepage": "https://fuseopen.com/",
     "engines": {
-        "vscode": "^1.34.0"
+        "vscode": "^1.66.0"
     },
     "categories": [
         "Programming Languages"
@@ -119,10 +119,10 @@
     },
     "devDependencies": {
         "@types/mocha": "^2.2.48",
-        "@types/node": "^6.14.10",
-        "@types/vscode": "^1.34.0",
-        "mocha": "^7.1.2",
-        "typescript": "^4.1.3",
-        "vsce": "^1.96.1"
+        "@types/node": "^6.14.13",
+        "@types/vscode": "^1.66.0",
+        "mocha": "^7.2.0",
+        "typescript": "^4.6.3",
+        "vsce": "^2.7.0"
     }
 }
