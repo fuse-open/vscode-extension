@@ -121,8 +121,8 @@
         "@types/mocha": "^10.0.1",
         "@types/node": "^20.1.4",
         "@types/vscode": "^1.66.0",
+        "@vscode/vsce": "^2.19.0",
         "mocha": "^10.2.0",
-        "typescript": "^5.0.4",
-        "vsce": "^2.15.0"
+        "typescript": "^5.0.4"
     }
 }
