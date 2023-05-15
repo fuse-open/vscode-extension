@@ -17,59 +17,59 @@
 	<key>patterns</key>
 	<array>
 		<dict>
-		    <key>name</key>
-		    <string>source.js.embedded.ux</string>
-		    <key>begin</key>
-		    <string>(&lt;)\s*(JavaScript)\s*(&gt;)</string>
-		    <key>beginCaptures</key>
-		    <dict>
-		        <key>1</key>
-		        <dict>
-		            <key>name</key>
-		            <string>punctuation.definition.tag.begin.xml</string>
-		        </dict>
-		        <key>2</key>
-		        <dict>
-		            <key>name</key>
-		            <string>entity.name.tag.data.ux</string>
-		        </dict>
-		        <key>3</key>
-		        <dict>
-		            <key>name</key>
-		            <string>punctuation.definition.tag.end.xml</string>
-		        </dict>
-		    </dict>
-		    <key>end</key>
-		    <string>(&lt;\/)\s*(JavaScript)\s*(&gt;)</string>
-		    <key>endCaptures</key>
-		    <dict>
-		        <key>1</key>
-		        <dict>
-		            <key>name</key>
-		            <string>punctuation.definition.tag.end.xml</string>
-		        </dict>
-		    	<key>2</key>
-		    	<dict>
-		    	    <key>name</key>
-		    	    <string>entity.name.tag.data.ux</string>
-		    	</dict>
+			<key>name</key>
+			<string>source.js.embedded.ux</string>
+			<key>begin</key>
+			<string>(&lt;)\s*(JavaScript)\s*(&gt;)</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.tag.begin.xml</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.tag.data.ux</string>
+				</dict>
 				<key>3</key>
-		        <dict>
-		            <key>name</key>
-		            <string>punctuation.definition.tag.end.xml</string>
-		        </dict>
-		    </dict>
-		    <key>patterns</key>
-		    <array>
-		        <dict>
-		            <key>include</key>
-		            <string>#tag-stuff</string>
-		        </dict>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.tag.end.xml</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(&lt;\/)\s*(JavaScript)\s*(&gt;)</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.tag.end.xml</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.tag.data.ux</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.tag.end.xml</string>
+				</dict>
+			</dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#tag-stuff</string>
+				</dict>
 				<dict>
 					<key>include</key>
 					<string>source.js</string>
 				</dict>
-		    </array>
+			</array>
 		</dict>
 		<dict>
 			<key>name</key>
