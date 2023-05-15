@@ -66,7 +66,7 @@ export class FuseDaemon {
         var packedMsg = msgType + "\n" + length + "\n" + serializedMsg;
 
         try {
-            fuseClient.stdin.write(packedMsg);
+            fuseClient.stdin?.write(packedMsg);
         }
         catch (e) {
             console.log(e);
@@ -108,8 +108,8 @@ export class FuseDaemon {
 
         this.fuseClient = spawn(fuse, ['daemon-client', 'vscode client']);
 
-        this.fuseClient.stdout.on('data', FuseDaemon.instance.onData);
-        this.fuseClient.stderr.on('data', FuseDaemon.instance.onError);
+        this.fuseClient.stdout?.on('data', FuseDaemon.instance.onData);
+        this.fuseClient.stderr?.on('data', FuseDaemon.instance.onError);
         this.fuseClient.on('close', FuseDaemon.instance.onClose);
 
         if (this.connected) {
